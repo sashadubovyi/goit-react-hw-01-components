@@ -1,17 +1,10 @@
 import user from '../../data/user.json';
+import style from './profile.module.css';
+import PropTypes from 'prop-types';
 
-export const ProfileCard = () => {
+const ProfileCard = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 30,
-        color: '#000',
-      }}
-    >
+    <div className={style.mainProfileStyle}>
       <Profile
         username={user.username}
         tag={user.tag}
@@ -31,24 +24,24 @@ const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div className="profile" style={profileStyle}>
+    <div className={style.profileStyle}>
       <div className="description">
         <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name" style={userInfoStyle}>
+        <p className={style.userInfoStyle}>
           <b>Name: </b>
           {username}
         </p>
-        <p className="tag" style={userInfoStyle}>
+        <p className={style.userInfoStyle}>
           <b>Login: </b>
           {tag}
         </p>
-        <p className="location" style={userInfoStyle}>
+        <p className={style.userInfoStyle}>
           <b>Address: </b>
           {location}
         </p>
       </div>
 
-      <ul className="stats" style={statsStyle}>
+      <ul className={style.statsStyle}>
         <li>
           <span className="label">
             <b>Followers</b>
@@ -75,20 +68,16 @@ const Profile = ({
   );
 };
 
-const profileStyle = {
-  border: '18px solid rgb(0, 0, 0)',
-  borderRadius: '50px',
-  padding: '25px',
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
-const userInfoStyle = {
-  marginLeft: '70px',
-};
-
-const statsStyle = {
-  paddingTop: '50px',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  flexWrap: 'wrap',
-};
+export default ProfileCard;

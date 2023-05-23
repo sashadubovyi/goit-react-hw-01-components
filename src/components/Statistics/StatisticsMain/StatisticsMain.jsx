@@ -1,26 +1,17 @@
 import data from '../../../data/data.json';
 import StatisticsStats from 'components/Statistics/StatisticsStats/StatisticsStats';
 import StatisticsTitle from 'components/Statistics/StatisticsTitle/StatisticsTitle';
+import { StatisticsMain } from './StatisticsMain.styled';
 
 const title = 'Upload stats';
 
 const Statistics = () => {
   return (
-    <section className="statistics" style={statisticsStyle}>
+    <StatisticsMain>
       <StatisticsTitle stats={title} />
       <StatisticsStats stats={data} />
-    </section>
+    </StatisticsMain>
   );
 };
 
 export default Statistics;
-
-const statisticsStyle = {
-  height: '100vh',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: '30px',
-  color: 'black',
-};

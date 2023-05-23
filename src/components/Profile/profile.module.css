@@ -1,0 +1,26 @@
+.mainProfileStyle {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #000;
+}
+
+.profileStyle {
+  border: 18px solid rgb(0, 0, 0);
+  border-radius: 50px;
+  padding: 25px;
+}
+
+.userInfoStyle {
+  margin-left: 70px;
+}
+
+.statsStyle {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

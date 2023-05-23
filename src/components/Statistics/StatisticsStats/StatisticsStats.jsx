@@ -1,17 +1,14 @@
 import StatisticsStatsItem from 'components/Statistics/StatisticsStatsItem/StatisticsStatsItem';
+import { StatList } from './StatisticsStats.styled';
 
 const StatisticsStats = ({ stats }) => {
   return (
-    <ul className="stat-list" style={statListStyle}>
+    <StatList>
       {stats.map(el => (
         <StatisticsStatsItem key={el.id} {...el} />
       ))}
-    </ul>
+    </StatList>
   );
 };
 
 export default StatisticsStats;
-
-const statListStyle = {
-  display: 'flex',
-};

@@ -1,4 +1,9 @@
 import PropTypes from 'prop-types';
+import {
+  LabelStyle,
+  PercentageStyle,
+  StatisticsItem,
+} from './StatisticsStatsItem.styled';
 
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF';
@@ -9,39 +14,18 @@ const getRandomColor = () => {
   return backgroundColor;
 };
 
-const StatisticsStatsItem = ({ label, percentage }) => {
-  const itemStyle = {
-    backgroundColor: getRandomColor(),
-    width: '150px',
-    height: '110px',
-    textAlign: 'center',
-  };
-
-  const labelStyle = {
-    color: '#fff',
-    fontSize: '20px',
-    fontWeight: '300',
-  };
-
-  const percentageStyle = {
-    color: '#fff',
-    fontSize: '50px',
-  };
-
+const StatisticsStatsItem = ({ id, label, percentage }) => {
   return (
-    <li className="item" style={itemStyle}>
-      <span className="label" style={labelStyle}>
-        {label}
-      </span>
+    <StatisticsItem key={id} color={getRandomColor()}>
+      <LabelStyle>{label}</LabelStyle>
       <br></br>
-      <span className="percentage" style={percentageStyle}>
-        {percentage}%
-      </span>
-    </li>
+      <PercentageStyle>{percentage}%</PercentageStyle>
+    </StatisticsItem>
   );
 };
 
 StatisticsStatsItem.propTypes = {
+  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
 };

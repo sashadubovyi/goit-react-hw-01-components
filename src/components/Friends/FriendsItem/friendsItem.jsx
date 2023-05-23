@@ -1,32 +1,13 @@
 import PropTypes from 'prop-types';
+import { FriendsItemStyle, FriendsName } from './FriendsItem.styled';
 
-const FriendsItem = ({ avatar, name, isOnline }) => {
-  const onlineStatus = {
-    backgroundColor: isOnline ? 'green' : 'red',
-    width: '15px',
-    height: '15px',
-    borderRadius: '50%',
-  };
-
-  const itemStyle = {
-    backgroundColor: isOnline ? '#aed2ae78' : '#ff000029',
-    display: 'flex',
-    alignItems: 'center',
-    width: '300px',
-    border: '1px solid #fff',
-    borderRadius: '50px',
-    padding: '10px 30px',
-    gap: '20px',
-  };
-
+const FriendsItem = ({ id, avatar, name, isOnline }) => {
   return (
-    <li className="item" style={itemStyle}>
-      <span className="status" style={onlineStatus}></span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name" style={nameStyle}>
-        {name}
-      </p>
-    </li>
+    <FriendsItemStyle key={id} isOnline={isOnline}>
+      <span></span>
+      <img src={avatar} alt="User avatar" width="48" />
+      <FriendsName>{name}</FriendsName>
+    </FriendsItemStyle>
   );
 };
 
@@ -37,8 +18,3 @@ FriendsItem.propTypes = {
 };
 
 export default FriendsItem;
-
-const nameStyle = {
-  margin: '0 auto',
-  fontWeight: '200',
-};
