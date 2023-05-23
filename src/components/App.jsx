@@ -1,16 +1,13 @@
+import { ProfileCard } from 'components/Profile/Profile';
+import Statistics from 'components/Statistics/StatisticsMain/StatisticsMain';
+import FriendsList from './Friends/FriendsList/FriendsList';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <ProfileCard />
+      <Statistics />
+      <FriendsList />
+    </>
   );
 };
